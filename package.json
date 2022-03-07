@@ -20,5 +20,16 @@
     "eslint-plugin-import": "^2.25.4",
     "husky": "^7.0.0",
     "jest": "^27.5.1"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.js",
+      "!src/index.js",
+      "!src/server/index.js",
+      "!./src/server/setupServer.js",
+      "!src/server/startServer.js",
+      "!src/database/index.js"
+    ],
+    "testEnvironment": "node"
   }
 }
