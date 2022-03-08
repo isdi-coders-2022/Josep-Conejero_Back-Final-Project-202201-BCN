@@ -3,18 +3,25 @@ const { model, Schema } = require("mongoose");
 const QuestionSchema = new Schema({
   question: {
     type: String,
-    default: Date.now,
+    required: true,
   },
-  text: {
+  answer: {
     type: String,
     required: true,
-    min: 1,
-    max: 200,
   },
-  likes: {
-    type: Number,
-    default: 0,
+  questionsLists: { type: [String] },
+  username: {
+    type: String,
   },
+
+  /* username: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
+  }, */
+  /*   lists: {
+    type: [Schema.Types.ObjectId],
+    ref: "QuestionsList",
+  }, */
 });
 
 const Question = model("Question", QuestionSchema, "questions");

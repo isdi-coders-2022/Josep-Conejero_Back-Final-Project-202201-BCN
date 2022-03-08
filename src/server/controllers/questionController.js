@@ -6,6 +6,23 @@ const getAllQuestions = async (req, res) => {
   res.json({ questions });
 };
 
+const getAQuestion = async (req, res, next) => {
+  const { idQuestion } = req.params;
+  try {
+    const question = await Question.findById(idQuestion);
+    if (question) {
+      res.json(question);
+    } else {
+      const error = new Error("Question not found");
+      error.code = 404;
+      next(error);
+    }
+  } catch (error) {
+    error.code = 400;
+    next(error);
+  }
+};
+
 const addQuestion = async (req, res, next) => {
   try {
     const question = req.body;
@@ -49,6 +66,7 @@ const updateQuestion = async (req, res, next) => {
 
 module.exports = {
   getAllQuestions,
+  getAQuestion,
   addQuestion,
   deleteQuestion,
   updateQuestion,
