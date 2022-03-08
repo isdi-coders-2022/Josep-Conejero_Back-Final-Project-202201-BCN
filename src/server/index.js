@@ -3,7 +3,7 @@ const express = require("express");
 const morgan = require("morgan");
 const helmet = require("helmet");
 const cors = require("cors");
-const tuitsRouter = require("./routers/questionsRouter");
+const questionsRouter = require("./routers/questionsRouter");
 
 const { notFoundError, generalError } = require("./middlewares/errors");
 
