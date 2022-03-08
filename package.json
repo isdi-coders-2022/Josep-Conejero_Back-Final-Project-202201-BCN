@@ -28,8 +28,7 @@
       "src/**/*.js",
       "!src/index.js",
       "!src/server/index.js",
-      "!./src/server/setupServer.js",
-      "!src/server/startServer.js",
+      "!src/server/riseTheServer.js",
       "!src/database/index.js"
     ],
     "testEnvironment": "node"
