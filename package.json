@@ -20,7 +20,8 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.25.4",
     "husky": "^7.0.0",
-    "jest": "^27.5.1"
+    "jest": "^27.5.1",
+    "nodemon": "^2.0.15"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -32,5 +33,14 @@
       "!src/database/index.js"
     ],
     "testEnvironment": "node"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "debug": "^4.3.3",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "helmet": "^5.0.2",
+    "mongoose": "^6.2.4",
+    "morgan": "^1.10.0"
   }
 }
