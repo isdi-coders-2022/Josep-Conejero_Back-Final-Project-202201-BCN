@@ -2,7 +2,7 @@ const { model, Schema } = require("mongoose");
 
 const QuestionSchema = new Schema({
   question: {
-    type: string,
+    type: String,
     default: Date.now,
   },
   text: {
