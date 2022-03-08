@@ -3,7 +3,7 @@ const express = require("express");
 const morgan = require("morgan");
 const helmet = require("helmet");
 const cors = require("cors");
-const questionsRouter = require("./routers/questionsRouter");
+const questionRouter = require("./routers/questionRouter");
 
 const { notFoundError, generalError } = require("./middlewares/errors");
 
@@ -13,7 +13,7 @@ app.use(morgan("dev"));
 app.use(express.json());
 app.use(helmet());
 
-app.use("/questions", questionsRouter);
+app.use("/question", questionRouter);
 
 app.use(notFoundError);
 app.use(generalError);
