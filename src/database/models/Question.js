@@ -9,10 +9,11 @@ const QuestionSchema = new Schema({
     type: String,
     required: true,
   },
+  questionsLists: { type: [String] },
   username: {
     type: String,
   },
-  lists: { type: [String] },
+
   /* username: {
     type: Schema.Types.ObjectId,
     ref: "User",
