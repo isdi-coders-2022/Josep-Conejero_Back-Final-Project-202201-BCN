@@ -38,6 +38,7 @@ const deleteQuestion = async (req, res, next) => {
   try {
     const question = await Question.findByIdAndDelete(idQuestion);
     if (question) {
+      res.status(200);
       res.json(idQuestion);
     } else {
       const error = new Error("Question not found");
