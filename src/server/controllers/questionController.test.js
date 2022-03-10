@@ -102,7 +102,7 @@ describe("Given a deleteQuestion controller", () => {
 
       const next = jest.fn();
 
-      const expectedResponse = questionToDelete.id;
+      /* const expectedResponse = questionToDelete.id; */
 
       Question.findByIdAndDelete = jest
         .fn()
