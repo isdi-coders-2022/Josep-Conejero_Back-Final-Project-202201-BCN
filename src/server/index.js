@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(helmet());
 
 app.use("/question", questionRouter);
-app.use("/questionsList", questionsListRouter);
+app.use("/questionslist", questionsListRouter);
 
 app.use(notFoundError);
 app.use(generalError);
