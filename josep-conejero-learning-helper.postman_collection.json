@@ -23,13 +23,25 @@
     },
     {
       "name": "{{origin}}question/6227b67fc624c56733927e2c",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
       "request": {
         "method": "GET",
         "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
         "url": {
-          "raw": "{{origin}}question/6227b912c624c56733927e2d",
+          "raw": "{{origin}}question/62325a9696ce24cb65ea87fc",
           "host": ["{{origin}}question"],
-          "path": ["6227b912c624c56733927e2d"]
+          "path": ["62325a9696ce24cb65ea87fc"]
         }
       },
       "response": []
@@ -84,9 +96,92 @@
           }
         },
         "url": {
-          "raw": "{{origin}}question/62309f2ed15ac1ae77489f1d",
+          "raw": "{{origin}}question/6233101f55462118aeb3d675",
           "host": ["{{origin}}question"],
-          "path": ["62309f2ed15ac1ae77489f1d"]
+          "path": ["6233101f55462118aeb3d675"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "{{origin}}questionslist/",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{origin}}questionslist/",
+          "host": ["{{origin}}questionslist"],
+          "path": [""]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "{{origin}}questionslist/6233a3d6cea4bbcb8f8a597b",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{origin}}questionslist/6233a3d6cea4bbcb8f8a597b",
+          "host": ["{{origin}}questionslist"],
+          "path": ["6233a3d6cea4bbcb8f8a597b"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "{{origin}}questionslist/6233a3d6cea4bbcb8f8a597b",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{origin}}questionslist/6233a3d6cea4bbcb8f8a597b",
+          "host": ["{{origin}}questionslist"],
+          "path": ["6233a3d6cea4bbcb8f8a597b"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "{{origin}}questionslist/",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "      {\r\n            \"listName\": \"Nombre 3\",\r\n            \"listSubject\": \"Materia 3\",\r\n            \"questions\": [],\r\n            \"username\": \"\"\r\n    \r\n        }",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{origin}}questionslist/",
+          "host": ["{{origin}}questionslist"],
+          "path": [""]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "{{origin}}questionslist/62344541904016b4c467b50f",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"listName\": \"Nombre modificado\",\r\n    \"listSubject\": \"Materia modificada\",\r\n    \"questions\": [],\r\n    \"username\": \"\"\r\n  \r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{origin}}questionslist/62344541904016b4c467b50f",
+          "host": ["{{origin}}questionslist"],
+          "path": ["62344541904016b4c467b50f"]
         }
       },
       "response": []
