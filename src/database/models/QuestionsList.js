@@ -27,7 +27,7 @@ const QuestionsListSchema = new Schema({
 const QuestionsList = model(
   "QuestionsList",
   QuestionsListSchema,
-  "questionsLists"
+  "questionslists"
 );
 
 module.exports = QuestionsList;
