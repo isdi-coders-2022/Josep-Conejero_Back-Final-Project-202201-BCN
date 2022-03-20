@@ -9,19 +9,15 @@ const QuestionsListSchema = new Schema({
     type: String,
     required: true,
   },
-  questions: { type: [String] },
-  username: {
-    type: String,
+  questions: {
+    type: [Schema.Types.ObjectId],
+    ref: "Question",
+    default: [],
   },
-
-  /* username: {
+  username: {
     type: Schema.Types.ObjectId,
     ref: "User",
-  }, */
-  /*   lists: {
-    type: [Schema.Types.ObjectId],
-    ref: "QuestionsList",
-  }, */
+  },
 });
 
 const QuestionsList = model(

@@ -12,7 +12,7 @@ describe("Given a registerUser middleware", () => {
       const req = {
         body: "username",
       };
-      const error = new Error("Sorry, username alredy taken");
+      const error = new Error("Sorry, username already taken");
       const next = jest.fn();
       User.findOne = jest.fn().mockResolvedValue(true);
 
