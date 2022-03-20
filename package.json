@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node src",
     "start-dev": "nodemon src -q",
-    "test": "jest",
+    "test": "jest --runInBand --verbose --detectOpenHandles --passWithNoTests",
     "test-dev": "jest --watchAll --verbose --collect-coverage",
     "prepare": "husky install"
   },
@@ -34,11 +34,13 @@
     "testEnvironment": "node"
   },
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "cors": "^2.8.5",
     "debug": "^4.3.3",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
     "helmet": "^5.0.2",
+    "jsonwebtoken": "^8.5.1",
     "mongodb-memory-server": "^8.4.0",
     "mongoose": "^6.2.4",
     "morgan": "^1.10.0",

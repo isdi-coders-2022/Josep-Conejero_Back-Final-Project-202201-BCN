@@ -1,4 +1,5 @@
 const { model, Schema } = require("mongoose");
+/* const QuestionsList = require("./QuestionsList"); */
 
 const QuestionSchema = new Schema({
   question: {
@@ -9,19 +10,15 @@ const QuestionSchema = new Schema({
     type: String,
     required: true,
   },
-  questionsLists: { type: [String] },
-  username: {
-    type: String,
-  },
-
-  /* username: {
-    type: Schema.Types.ObjectId,
-    ref: "User",
-  }, */
-  /*   lists: {
+  questionsLists: {
     type: [Schema.Types.ObjectId],
     ref: "QuestionsList",
-  }, */
+    default: [],
+  },
+  username: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
+  },
 });
 
 const Question = model("Question", QuestionSchema, "questions");
