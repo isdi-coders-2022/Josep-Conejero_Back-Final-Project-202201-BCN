@@ -67,4 +67,9 @@ const getUser = async (req, res) => {
   res.status(200).json({ actualUser });
 };
 
-module.exports = { registerUser, loginUser, getUser };
+const getUsers = async (req, res) => {
+  const users = await User.find();
+  res.json({ users });
+};
+
+module.exports = { registerUser, loginUser, getUser, getUsers };
