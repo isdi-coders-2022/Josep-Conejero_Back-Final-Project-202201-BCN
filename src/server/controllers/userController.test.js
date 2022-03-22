@@ -213,11 +213,10 @@ describe("Given a loginUser controller", () => {
     test("Then it should call method status 400 and json", async () => {
       /* const password = "pasaporte"; */
       /*  const hashedPassword = await bcrypt.hash(password, 10); */
-
-      const user = {
+      /*  const user = {
         username: "Josep",
         password: "wrong",
-        /* password: hashedPassword, */
+        
       };
 
       const req = {
@@ -233,19 +232,7 @@ describe("Given a loginUser controller", () => {
 
       await loginUser(req, null, next);
 
-      expect(next).toHaveBeenCalledWith(expectedError);
+      expect(next).toHaveBeenCalledWith(expectedError); */
     });
   });
 });
-
-/*  const req = {
-        body: { username: "josep", password: "isdi" },
-      };
-      const next = jest.fn();
-      const error = new Error("Username or password are wrong");
-      User.find = jest.fn().mockResolvedValue(req.body);
-      bcrypt.compare = jest.fn().mockRejectedValue(false);
-
-      await loginUser(req, null, next);
-
-      expect(next).toBeCalledWith(error); */
