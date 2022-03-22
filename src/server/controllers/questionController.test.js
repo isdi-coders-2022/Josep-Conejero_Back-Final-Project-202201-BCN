@@ -4,6 +4,7 @@ const {
   getAQuestion,
   addQuestion,
   deleteQuestion,
+  updateQuestion,
 } = require("./questionController");
 
 jest.mock("../../database/models/Question");
@@ -116,7 +117,7 @@ describe("Given a deleteQuestion controller", () => {
     });
   });
 
-  /* describe("When it receives an invalid id to delete", () => {
+  describe("When it receives an invalid id to delete", () => {
     test("Then it should call next with an error", async () => {
       const req = {
         params: {
@@ -125,7 +126,7 @@ describe("Given a deleteQuestion controller", () => {
       };
 
       const next = jest.fn();
-      const error = new Error("ID not valid");
+      const error = new Error("Question not found");
 
       Question.findByIdAndRemove = jest.fn().mockRejectedValue(error);
 
@@ -133,5 +134,65 @@ describe("Given a deleteQuestion controller", () => {
 
       expect(next).toHaveBeenCalledWith(error);
     });
-  }); */
+  });
+});
+
+describe("Given a updateQuestion controller", () => {
+  describe("When it receives an existing id to update", () => {
+    test("Then it should call method json with an idQuestion in the response", async () => {
+      const questionToUpdate = {
+        id: 6,
+        question: "Pregunta 6",
+        answer: "Respuesta 6",
+        questionsLists: [],
+      };
+
+      const req = {
+        params: {
+          id: 6,
+        },
+        body: {
+          question: "Pregunta 5",
+          answer: "Respuesta 5",
+        },
+      };
+
+      const res = { json: jest.fn(), status: jest.fn().mockReturnThis() };
+
+      const next = jest.fn();
+
+      /* const expectedResponse = questionToDelete.id; */
+
+      Question.findByIdAndUpdate = jest
+        .fn()
+        .mockResolvedValue(questionToUpdate);
+
+      await updateQuestion(req, res, next);
+
+      /* expect(res.json).toHaveBeenCalledWith(expectedResponse);  */
+
+      expect(next).not.toHaveBeenCalled();
+    });
+  });
+
+  describe("When it receives an invalid id to update", () => {
+    test("Then it should call next with an error", async () => {
+      const req = {
+        params: {
+          id: "wrongID",
+        },
+      };
+
+      const res = { json: jest.fn(), status: jest.fn().mockReturnThis() };
+
+      const next = jest.fn();
+      const error = new Error("Question not found");
+
+      Question.findByIdAndUpdate = jest.fn().mockRejectedValue(error);
+
+      await updateQuestion(req, res, next);
+
+      expect(next).toHaveBeenCalledWith(error);
+    });
+  });
 });

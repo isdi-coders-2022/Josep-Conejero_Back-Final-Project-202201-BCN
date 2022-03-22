@@ -116,7 +116,7 @@ describe("Given a deleteQuestionsList controller", () => {
     });
   });
 
-  /* describe("When it receives an invalid id to delete", () => {
+  describe("When it receives an invalid id to delete", () => {
     test("Then it should call next with an error", async () => {
       const req = {
         params: {
@@ -125,13 +125,13 @@ describe("Given a deleteQuestionsList controller", () => {
       };
 
       const next = jest.fn();
-      const error = new Error("ID not valid");
+      const error = new Error("Questions List not found");
 
-      Question.findByIdAndRemove = jest.fn().mockRejectedValue(error);
+      QuestionsList.findByIdAndRemove = jest.fn().mockRejectedValue(error);
 
-      await deleteQuestion(req, null, next);
+      await deleteQuestionsList(req, null, next);
 
       expect(next).toHaveBeenCalledWith(error);
     });
-  }); */
+  });
 });
