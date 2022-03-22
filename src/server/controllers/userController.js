@@ -33,7 +33,7 @@ const registerUser = async (req, res, next) => {
   } catch (error) {
     const loginError = new Error("User, Username or Password not found");
     loginError.code = 400;
-    next(error);
+    next(loginError);
   }
 };
 
@@ -63,7 +63,7 @@ const loginUser = async (req, res, next) => {
   return res.json({ token });
 };
 
-const getUser = async (req, res) => {
+/* const getUser = async (req, res) => {
   const headerAuth = req.header("Authorization");
   const token = headerAuth.replace("Bearer ", "");
   const { id } = jwt.verify(token, process.env.JWT_SECRET);
@@ -75,6 +75,6 @@ const getUser = async (req, res) => {
 const getUsers = async (req, res) => {
   const users = await User.find();
   res.json({ users });
-};
+}; */
 
-module.exports = { registerUser, loginUser, getUser, getUsers };
+module.exports = { registerUser, loginUser /* , getUser, getUsers  */ };

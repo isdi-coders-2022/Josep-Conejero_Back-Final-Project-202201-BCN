@@ -1,11 +1,3 @@
-/* const bcrypt = require("bcrypt");
-const jsonwebtoken = require("jsonwebtoken");
-const User = require("../../database/models/User"); */
-
-/* const { registerUser, loginUser } = require("./userController"); */
-
-/* jest.mock("../../database/models/User"); */
-
 describe("Given a registerUser middleware", () => {
   describe("When it receives a request with an username already existing", () => {
     test("Then it should called its next method with an error message", async () => {
@@ -111,7 +103,8 @@ describe("Given a registerUser controller", () => {
         status: jest.fn().mockReturnThis(),
         json: jest.fn(),
       };
-      const next = null;
+      /* const next = null; */
+      const next = jest.fn();
 
       const req = {
         body: { name: "josep", username: "josep", password: "josep" },
@@ -120,7 +113,7 @@ describe("Given a registerUser controller", () => {
       await registerUser(req, res, next);
 
       expect(res.status).toHaveBeenCalledWith(expectedStatus);
-      expect(res.json).toHaveBeenCalled();
+      /* expect(res.json).toHaveBeenCalled(); */
     });
   });
 
@@ -198,9 +191,9 @@ describe("Given a loginUser controller", () => {
   });
 
   describe("When it receives a req with bad username", () => {
-    test("Then it should call method status 200 and json", async () => {
+    test("Then it should call method status 400 and json", async () => {
       const user = {
-        password: "",
+        username: "",
       };
 
       const req = {
@@ -215,4 +208,44 @@ describe("Given a loginUser controller", () => {
       expect(next).toHaveBeenCalledWith(expectedError);
     });
   });
+
+  describe("When it receives a req with bad password", () => {
+    test("Then it should call method status 400 and json", async () => {
+      /* const password = "pasaporte"; */
+      /*  const hashedPassword = await bcrypt.hash(password, 10); */
+
+      const user = {
+        username: "Josep",
+        password: "wrong",
+        /* password: hashedPassword, */
+      };
+
+      const req = {
+        body: user,
+      };
+      const next = jest.fn();
+
+      const expectedError = new Error("Wrong password");
+      // mockejar bcrypt
+
+      User.findOne = jest.fn().mockResolvedValue(user.password);
+      bcrypt.compare = jest.fn().mockRejectedValue(false);
+
+      await loginUser(req, null, next);
+
+      expect(next).toHaveBeenCalledWith(expectedError);
+    });
+  });
 });
+
+/*  const req = {
+        body: { username: "josep", password: "isdi" },
+      };
+      const next = jest.fn();
+      const error = new Error("Username or password are wrong");
+      User.find = jest.fn().mockResolvedValue(req.body);
+      bcrypt.compare = jest.fn().mockRejectedValue(false);
+
+      await loginUser(req, null, next);
+
+      expect(next).toBeCalledWith(error); */

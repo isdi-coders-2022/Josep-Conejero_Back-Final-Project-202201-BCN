@@ -40,7 +40,7 @@ describe("Given a getAQuestionsList controller", () => {
         },
       };
       const res = {
-        status: jest.fn().mockReturnThis(),
+        status: jest.fn().mockReturnThis(), // perquè n'hi ha coses encadenades
         json: jest.fn(),
       };
       const questionsList = [
@@ -51,7 +51,7 @@ describe("Given a getAQuestionsList controller", () => {
         },
       ];
 
-      QuestionsList.findById = jest.fn().mockResolvedValue(questionsList);
+      QuestionsList.findById = jest.fn().mockResolvedValue(questionsList); // mockRejectedValue()
 
       await getAQuestionsList(req, res);
 

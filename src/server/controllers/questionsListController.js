@@ -13,7 +13,7 @@ const getAQuestionsList = async (req, res, next) => {
     if (questionsList) {
       res.json(questionsList);
     } else {
-      const error = new Error("Questions List not found");
+      const error = new Error("Questions List not found"); // si es vuit
       error.code = 404;
       next(error);
     }
