@@ -103,15 +103,11 @@ describe("Given a deleteQuestion controller", () => {
 
       const next = jest.fn();
 
-      /* const expectedResponse = questionToDelete.id; */
-
       Question.findByIdAndDelete = jest
         .fn()
         .mockResolvedValue(questionToDelete);
 
       await deleteQuestion(req, res, next);
-
-      /* expect(res.json).toHaveBeenCalledWith(expectedResponse);  */
 
       expect(next).not.toHaveBeenCalled();
     });
@@ -161,15 +157,11 @@ describe("Given a updateQuestion controller", () => {
 
       const next = jest.fn();
 
-      /* const expectedResponse = questionToDelete.id; */
-
       Question.findByIdAndUpdate = jest
         .fn()
         .mockResolvedValue(questionToUpdate);
 
       await updateQuestion(req, res, next);
-
-      /* expect(res.json).toHaveBeenCalledWith(expectedResponse);  */
 
       expect(next).not.toHaveBeenCalled();
     });

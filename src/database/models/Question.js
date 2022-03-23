@@ -1,5 +1,4 @@
 const { model, Schema } = require("mongoose");
-/* const QuestionsList = require("./QuestionsList"); */
 
 const QuestionSchema = new Schema({
   question: {

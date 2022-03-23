@@ -50,7 +50,6 @@ describe("Given auth", () => {
       auth(req, null, next);
 
       expect(next).toHaveBeenCalledWith();
-      /* expect(req).toHaveProperty("user"); */
     });
   });
 });

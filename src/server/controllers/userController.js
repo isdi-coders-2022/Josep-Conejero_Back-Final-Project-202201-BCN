@@ -1,14 +1,12 @@
 require("dotenv").config();
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-/* const fs = require("fs");
-const path = require("path"); */
 const User = require("../../database/models/User");
 
 const registerUser = async (req, res, next) => {
   const { username, password, name } = req.body;
 
-  const SALT = 10; /* +process.env.SALT */
+  const SALT = 10;
   try {
     const encryptedPassword = await bcrypt.hash(password, SALT);
     const usernameExists = await User.findOne({ username });
@@ -63,18 +61,4 @@ const loginUser = async (req, res, next) => {
   return res.json({ token });
 };
 
-/* const getUser = async (req, res) => {
-  const headerAuth = req.header("Authorization");
-  const token = headerAuth.replace("Bearer ", "");
-  const { id } = jwt.verify(token, process.env.JWT_SECRET);
-
-  const actualUser = await User.findById(id);
-  res.status(200).json({ actualUser });
-};
-
-const getUsers = async (req, res) => {
-  const users = await User.find();
-  res.json({ users });
-}; */
-
-module.exports = { registerUser, loginUser /* , getUser, getUsers  */ };
+module.exports = { registerUser, loginUser };
