@@ -102,15 +102,11 @@ describe("Given a deleteQuestionsList controller", () => {
 
       const next = jest.fn();
 
-      /* const expectedResponse = questionToDelete.id; */
-
       QuestionsList.findByIdAndDelete = jest
         .fn()
         .mockResolvedValue(questionsListToDelete);
 
       await deleteQuestionsList(req, res, next);
-
-      /* expect(res.json).toHaveBeenCalledWith(expectedResponse);  */
 
       expect(next).not.toHaveBeenCalled();
     });
